@@ -1,7 +1,7 @@
 /*
  * @Author: 张卓南
  * @Date: 2024-06-02 19:12:29
- * @LastEditTime: 2024-06-04 11:25:11
+ * @LastEditTime: 2024-06-16 00:12:16
  * @Description:
  */
 const arr = [1, 3, 2, 4, 7, 8, 4, 3, 2, 5];
@@ -88,6 +88,13 @@ const pupSort2 = (arr) => {
   return arr;
 };
 
+
+/**
+ * 时间复杂度：nlogn
+ * 空间复杂度：n
+ * @param {*} arr 
+ * @returns 
+ */
 // 拆再合
 const mergeSort = (arr) => {
   const len = arr.length;
@@ -115,6 +122,12 @@ const merge = (left, right) => {
   return result;
 };
 
+/**
+ * 时间复杂度：最好nlogn，最差n^2
+ * 空间复杂度：平均logn 最差n
+ * @param {*} arr 
+ * @returns 
+ */
 const quickSort = (arr) => {
   const len = arr.length;
   if (len <= 1) return arr;
