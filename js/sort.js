@@ -1,7 +1,7 @@
 /*
  * @Author: 张卓南
  * @Date: 2024-06-02 19:12:29
- * @LastEditTime: 2024-06-16 00:12:16
+ * @LastEditTime: 2024-06-25 14:28:11
  * @Description:
  */
 const arr = [1, 3, 2, 4, 7, 8, 4, 3, 2, 5];
@@ -145,4 +145,6 @@ const quickSort = (arr) => {
   }
   return [...quickSort(left), pivot, ...quickSort(right)];
 };
-console.log(quickSort(arr));
+// console.log(quickSort(arr));
+
+

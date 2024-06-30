@@ -1,0 +1,41 @@
+<!--
+ * @Author: 张卓南
+ * @Date: 2024-06-19 21:45:31
+ * @LastEditTime: 2024-06-19 21:56:32
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="children"></div>
+      <div class="children"></div>
+      <div class="children"></div>
+      <div class="children"></div>
+      <div class="children"></div>
+      <div class="children"></div>
+      <div class="children"></div>
+      <div class="children"></div>
+      <div class="children"></div>
+      <div class="children"></div>
+    </div>
+    <style>
+      .wrap {
+        display: grid;
+        grid-template-columns: repeat(5, 200px);
+        grid-template-rows: repeat(2, 400px);
+        /* grid-template-rows: 400px, 400px; */
+        grid-gap: 10px;
+      }
+      .children {
+        background-color: aqua;
+      }
+    </style>
+  </body>
+</html>

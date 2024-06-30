@@ -1,0 +1,56 @@
+<!--
+ * @Author: 张卓南
+ * @Date: 2024-06-22 22:16:42
+ * @LastEditTime: 2024-06-23 14:59:56
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .demo {
+      position: relative;
+      line-height: 20px;
+      height: 40px;
+      overflow: hidden;
+    }
+    .demo::after {
+      content: "...";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 0 20px 0 10px;
+    }
+    .box {
+      /* 内部大小 */
+      width: 0px;
+      height: 0px;
+      /* 边框大小 只设置两条边*/
+      border-top: #4285f4 solid;
+      border-right: transparent solid;
+      border-width: 85px;
+      /* 其他设置 */
+      margin: 50px;
+    }
+    .border {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 50px 50px;
+      border-color: transparent transparent #d9534f;
+    }
+  </style>
+
+  <body>
+    <div class="demo">
+      这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本这是一段很长的文本
+    </div>
+    <div class="box"></div>
+    <div class="border"></div>
+  </body>
+</html>

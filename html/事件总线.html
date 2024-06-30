@@ -1,0 +1,74 @@
+<!--
+ * @Author: 张卓南
+ * @Date: 2024-06-25 22:07:29
+ * @LastEditTime: 2024-06-25 22:18:40
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件总线</title>
+  </head>
+  <body>
+    <button class="sty">监听执行事件</button>
+
+    <script>
+      class EventBus {
+        constructor() {
+          this.eventMap = {};
+        }
+        on(eventName, eventFn) {
+          let eventFns = this.eventMap[eventName];
+          if (!eventFns) {
+            eventFns = [];
+            this.eventMap[eventName] = eventFns;
+          }
+          eventFns.push(eventFn);
+        }
+
+        emit(eventName) {
+          let eventFns = this.eventMap[eventName];
+          if (!eventFns) return;
+          eventFns.forEach((eventFn) => {
+            eventFn();
+          });
+        }
+
+        off(eventName, fn) {
+          let eventFns = this.eventMap[eventName];
+          if (!eventFns) return;
+          for (let i = 0; i < eventFns.length; i++) {
+            if (eventFns[i] === fn) {
+              eventFns.splice(i, 1);
+              break;
+            }
+
+            if (eventFns.length === 0) {
+              delete this.eventMap[eventName];
+            }
+          }
+        }
+      }
+      const ev = new EventBus();
+      ev.on("zzn", () => {
+        console.log("事件1");
+      });
+
+      const click = () => {
+        console.log("事件2");
+      };
+      ev.on("zzn", click);
+      setTimeout(() => {
+        ev.off("zzn", click);
+      }, 5000);
+      const element = document.querySelector(".sty");
+      element.onclick = function () {
+        console.log("监听事件哦");
+        ev.emit("zzn");
+      };
+    </script>
+  </body>
+</html>

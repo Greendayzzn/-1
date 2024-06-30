@@ -1,0 +1,52 @@
+<!--
+ * @Author: 张卓南
+ * @Date: 2024-06-17 14:23:43
+ * @LastEditTime: 2024-06-17 14:23:47
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>offsetTop 示例</title>
+  <style>
+    body {
+      height: 2000px; /* 产生页面滚动效果 */
+    }
+    .container {
+      height: 1000px; /* 一个高度为1000px的容器，用来产生滚动条 */
+      overflow-y: scroll; /* 垂直滚动条 */
+    }
+    .element {
+      margin-top: 500px; /* 元素距离容器顶部的距离 */
+      height: 200px;
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="element" id="element">Element</div>
+  </div>
+  <script>
+    const element = document.getElementById('element');
+const viewPortHeight = window.innerHeight;
+
+// 监听页面滚动事件
+document.addEventListener('scroll', function() {
+  // 获取元素的边界框
+  const rect = element.getBoundingClientRect();
+  
+  // 判断元素是否在视口内可见
+  if (rect.top >= 0 && rect.bottom <= viewPortHeight) {
+    console.log('Element is fully visible in the viewport');
+  } else if (rect.top < viewPortHeight && rect.bottom >= 0) {
+    console.log('Element is partially visible in the viewport');
+  } else {
+    console.log('Element is not visible in the viewport');
+  }
+});
+
+  </script>
+</body>
+</html>

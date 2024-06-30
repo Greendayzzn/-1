@@ -1,0 +1,56 @@
+<!--
+ * @Author: 张卓南
+ * @Date: 2024-06-25 23:30:08
+ * @LastEditTime: 2024-06-25 23:30:34
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag and Drop Example</title>
+    <style>
+      #draggable {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="draggable">Drag me!</div>
+    <script>
+      // drag-and-drop.js
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const draggable = document.getElementById("draggable");
+        let offsetX = 0;
+        let offsetY = 0;
+        let isDragging = false;
+
+        draggable.addEventListener("mousedown", (e) => {
+          isDragging = true;
+          offsetX = e.clientX - draggable.offsetLeft;
+          offsetY = e.clientY - draggable.offsetTop;
+          document.addEventListener("mousemove", onMouseMove);
+          document.addEventListener("mouseup", onMouseUp);
+        });
+
+        function onMouseMove(e) {
+          if (isDragging) {
+            draggable.style.left = `${e.clientX - offsetX}px`;
+            draggable.style.top = `${e.clientY - offsetY}px`;
+          }
+        }
+
+        function onMouseUp() {
+          isDragging = false;
+          document.removeEventListener("mousemove", onMouseMove);
+          document.removeEventListener("mouseup", onMouseUp);
+        }
+      });
+    </script>
+  </body>
+</html>

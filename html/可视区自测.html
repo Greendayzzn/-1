@@ -1,0 +1,49 @@
+<!--
+ * @Author: 张卓南
+ * @Date: 2024-06-19 00:52:08
+ * @LastEditTime: 2024-06-19 01:17:27
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="contain">
+      <div class="box"></div>
+    </div>
+    <style>
+      .contain {
+        height: 2000px;
+      }
+      .box {
+        background-color: aqua;
+        height: 200px;
+        margin-top: 800px;
+      }
+    </style>
+    <script>
+      window.addEventListener("scroll", () => {
+        const target = document.querySelector(".box");
+        const rect = target.getBoundingClientRect();
+        const { top, bottom, left, right } = rect;
+        const viewHeight = window.innerHeight;
+        const viewWidth = window.innerWidth;
+        if (
+          top >= 0 &&
+          bottom <= viewHeight &&
+          left >= 0 &&
+          right <= viewWidth
+        ) {
+          console.log("在可见范围内");
+        }else{
+          console.log("不在可见范围内");
+        }
+      });
+    </script>
+  </body>
+</html>
